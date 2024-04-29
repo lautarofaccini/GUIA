@@ -1,0 +1,23 @@
+/* 
+Modelo relacional
+
+CLIENTES(DNI: Int, NyA: String)
+    CP: DNI
+AUTOMOVILES(ID: String, N_Acc: Int, idC: Int)
+    CP: ID
+    CF: idC -> CLIENTES(DNI)
+    CNN: N_Acc, idC
+*/
+
+CREATE TABLE CLIENTES(
+    DNI INTEGER, 
+    NyA CHAR(50), 
+    PRIMARY KEY(DNI)
+)
+CREATE TABLE AUTOMOVILES(
+    ID INTEGER,
+    N_Acc INTEGER,
+    idC INTEGER,
+    PRIMARY KEY(ID),
+    FOREIGN KEY(idC) REFERENCES CLIENTES(DNI)
+)
