@@ -45,4 +45,46 @@ Personas(
 )
     CP: id_persona
 */
+CREATE TABLE Oficiales(
+    id_persona INTEGER, 
+    numero_despacho INTEGER,
+    PRIMARY KEY(id_persona),
+    FOREIGN KEY(id_persona) REFERENCES Empleados
+)
 
+CREATE TABLE Cajeros(
+    id_persona INTEGER, 
+    numero_caja INTEGER,
+    horas_trabajadas INTEGER,
+    PRIMARY KEY(id_persona),
+    FOREIGN KEY(id_persona) REFERENCES Empleados,
+)
+
+CREATE TABLE Secretarias(
+    id_persona INTEGER, 
+    horas_trabajadas INTEGER,
+    PRIMARY KEY(id_persona),
+    FOREIGN KEY(id_persona) REFERENCES Empleados
+)
+
+CREATE TABLE Empleados(
+    id_persona INTEGER, 
+    sueldo INTEGER,
+    PRIMARY KEY(id_persona),
+    FOREIGN KEY(id_persona) REFERENCES Personas
+)
+
+CREATE TABLE Clientes(
+    id_persona INTEGER,
+    calificacion_crediticia CHAR(50),
+    PRIMARY KEY(id_persona),
+    FOREIGN KEY(id_persona) REFERENCES Personas
+)
+
+CREATE TABLE Personas(
+    id_persona INTEGER,
+    nombre CHAR(50),
+    calle INTEGER,
+    ciudad CHAR(50),
+    PRIMARY KEY(id_persona)
+)
